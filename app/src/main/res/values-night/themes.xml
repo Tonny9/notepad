@@ -1,0 +1,26 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- Base application theme. -->
+    <style name="Theme.Notepad" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+        <!-- Primary brand color. -->
+        <item name="colorPrimary">@color/purple_200</item>
+        <item name="colorPrimaryVariant">#8F435D</item>
+        <item name="colorOnPrimary">#99FFFFFF</item>
+        <!-- Secondary brand color. -->
+        <item name="colorSecondary">@color/teal_200</item>
+        <item name="colorSecondaryVariant">#782541</item>
+        <item name="colorOnSecondary">#9C8080</item>
+        <!-- Status bar color. -->
+        <item name="android:statusBarColor">?attr/colorPrimaryVariant</item>
+        <!-- Customize your theme here. -->
+    </style>
+    <style name="darkmodeswitch" parent="Theme.AppCompat.Light">
+        <item name="colorControlActivated">#8F435D</item>
+        <item name="colorSwitchThumbNormal">#9C8080</item>
+        <item name="android:foreground">#99FFFFFF</item>
+    </style>
+    <style name="notificationswitch" parent="Theme.AppCompat.Light">
+        <item name="colorControlActivated">#782541</item>
+        <item name="colorSwitchThumbNormal">#9C8080</item>
+        <item name="android:colorForeground">#99FFFFFF</item>
+    </style>
+</resources>
