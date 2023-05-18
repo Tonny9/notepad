@@ -1,19 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
-<item android:id="@+id/albumm"
-    android:title="Album"
-    android:icon="@drawable/baseline_photo_album_24"
-    app:showAsAction="always"/>
-
-    <item android:id="@+id/sharee"
-        android:title="share"
-        android:icon="@drawable/baseline_share_24"
+    <item
+        android:id="@+id/btn_share_note"
+        android:title="@string/share_note"
+        android:enabled="true"
+        android:icon="@drawable/share"
         app:showAsAction="always"/>
-
-    <item android:id="@+id/del"
-    android:title="Delete"
-    android:icon="@drawable/baseline_delete_24"
-    app:showAsAction="always"/>
-
+    <item
+        android:id="@+id/btn_save_note"
+        android:title="@string/save_note"
+        android:enabled="true"
+        android:icon="@drawable/content_save"
+        app:showAsAction="always"/>
+    <item
+        android:id="@+id/btn_delete_note"
+        android:title="@string/delete_note"
+        android:enabled="true"
+        android:icon="@drawable/delete"
+        app:showAsAction="always"/>
 </menu>

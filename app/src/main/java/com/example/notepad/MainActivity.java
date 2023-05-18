@@ -1,27 +1,39 @@
 package com.example.notepad;
 
 import androidx.activity.result.contract.ActivityResultContracts;
+import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.GridLayoutManager;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+import androidx.recyclerview.widget.StaggeredGridLayoutManager;
 
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
 import android.widget.ImageButton;
-import android.widget.ListView;
 
+import android.widget.SearchView;
+import android.widget.Toast;
+
+import com.example.notepad.Adapter.NoteAdapter;
+import com.example.notepad.model.Note;
+import com.example.notepad.repository.DatabaseHelper;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import java.util.ArrayList;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements View.OnClickListener, NoteAdapter.OnClickListener{
     FloatingActionButton addNoteBtn;
-     ArrayList<String> notes = new ArrayList<>();
-     ArrayAdapter arrayAdapter;
+     ArrayList<Note> notes = new ArrayList<>();
+
      ImageButton settingBtn;
+    public RecyclerView noteRecycleView;
+    SearchView searchView;
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -29,6 +41,21 @@ public class MainActivity extends AppCompatActivity {
 
         addNoteBtn = findViewById(R.id.add_note_Btn);
         settingBtn = findViewById(R.id.settings);
+        noteRecycleView = findViewById(R.id.noteRecycleView);
+
+
+        getNotes();
+
+        NoteAdapter adapter = new NoteAdapter(this, notes);
+
+        adapter.setOnClickListener(this);
+
+        noteRecycleView.setHasFixedSize(true);
+        noteRecycleView.setLayoutManager(new LinearLayoutManager(this));
+        noteRecycleView.setAdapter(adapter);
+
+
+
         settingBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -40,20 +67,35 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(MainActivity.this,NoteDetailsActivity.class);
-                startActivityForResult(intent,101);
+               startActivity(intent);
             }
         });
 
     }
 
-    @Override
-    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
-        super.onActivityResult(requestCode, resultCode, data);
-        if(requestCode==101){
-            if(resultCode== Activity.RESULT_OK){
 
-            }
-        }
+
+
+    public void onClick(int position, Note note) {
+        Toast.makeText(this, "Position: "+position+" id: "+note.getId(), Toast.LENGTH_SHORT).show();
+
+        Intent intent = new Intent(this,UpdateNoteActivity.class);
+        intent.putExtra("id",note.getId());
+        intent.putExtra("title",note.getTitle());
+        intent.putExtra("body",note.getBody());
+        startActivity(intent);
+
     }
-}
+
+    private void getNotes() {
+        DatabaseHelper db = new DatabaseHelper(getApplicationContext());
+        notes = db.getAllNotes();
+    }
+    @Override
+    public void onClick(View view) {
+
+    }
+
+    }
+
 

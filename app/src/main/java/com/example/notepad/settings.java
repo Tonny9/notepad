@@ -24,11 +24,9 @@ public class  settings extends AppCompatActivity {
         bacBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(settings.this,MainActivity.class);
+                Intent intent = new Intent(settings.this, MainActivity.class);
                 startActivity(intent);
             }
         });
     }
-    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
-
-    }
+}

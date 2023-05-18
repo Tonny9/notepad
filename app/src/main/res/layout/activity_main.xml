@@ -26,6 +26,17 @@
                     android:layout_below="@id/pad"
                     />
         </RelativeLayout>
+        <LinearLayout
+            android:layout_below="@+id/ser"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/white">
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/noteRecycleView"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"/>
+
+        </LinearLayout>
 
         <include layout="@layout/toolbar1"/>
 
