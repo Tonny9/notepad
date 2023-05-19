@@ -3,6 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".settings">
     <RelativeLayout
         android:layout_width="match_parent"
@@ -34,16 +35,17 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerVertical="true"
-            android:text="Dark theme"
+            android:text="Change theme"
             android:textSize="20sp"
             />
 <androidx.appcompat.widget.SwitchCompat
+    android:id="@+id/swithem"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
     android:layout_alignParentEnd="true"
     android:layout_centerVertical="true"
-    android:switchMinWidth="50dp"
-    android:theme="@style/darkmodeswitch"/>
+    android:thumbTint="@color/swtch"
+    />
     </RelativeLayout>
         <RelativeLayout
             android:layout_width="match_parent"
@@ -59,13 +61,7 @@
                 android:text="Notifications"
                 android:textSize="20sp"
                 />
-            <androidx.appcompat.widget.SwitchCompat
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentEnd="true"
-                android:layout_centerVertical="true"
-                android:switchMinWidth="50dp"
-                android:theme="@style/notificationswitch"/>
+
         </RelativeLayout>
     <RelativeLayout
     android:layout_width="match_parent"
@@ -88,7 +84,8 @@
             android:id="@+id/rightarrow"
             android:src="@drawable/baseline_chevron_right_24"
             android:layout_alignParentEnd="true"
-            android:layout_centerVertical="true"/>
+            android:layout_centerVertical="true"
+           />
     </RelativeLayout>
     <RelativeLayout
         android:layout_width="match_parent"

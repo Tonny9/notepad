@@ -13,14 +13,17 @@
         <item name="android:statusBarColor">?attr/colorPrimaryVariant</item>
         !-- Customize your theme here. -->
     </style>
-    <style name="darkmodeswitch" parent="Theme.AppCompat.Light">
-        <item name="colorControlActivated">@color/my_primary</item>
-        <item name="colorSwitchThumbNormal">#FFFFFF</item>
-        <item name="android:foreground">#99FFFFFF</item>
+    <style name="AppTheme.Notepad_light" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+        <item name="colorPrimary">@color/purple_500</item>
+        <item name="colorPrimaryVariant">@color/purple_700</item>
+        <item name="colorOnPrimary">@color/white</item>
+
+        <item name="colorSecondary">@color/teal_200</item>
+        <item name="colorSecondaryVariant">@color/teal_700</item>
+        <item name="colorOnSecondary">@color/black</item>
+        <!-- Status bar color. -->
+        <item name="android:statusBarColor">?attr/colorPrimaryVariant</item>
     </style>
-    <style name="notificationswitch" parent="Theme.AppCompat.Light">
-        <item name="colorControlActivated">@color/my_primary</item>
-        <item name="colorSwitchThumbNormal">#FFFFFF</item>
-        <item name="android:colorForeground">#99FFFFFF</item>
-    </style>
+
+
 </resources>

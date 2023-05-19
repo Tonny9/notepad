@@ -12,8 +12,11 @@
     <color name="setbackground">#E3D76B</color>
     <color name="tlbar">#FFFFFF</color>
 
-    <color name="divider_color">#cccccc</color>
 
+
+    <color name="rirow">#FF000000</color>
+    <color name="divider_color">#cccccc</color>
+    <color name="swtch">#E1412267</color>
     <color name="color1">#A65C5C</color>
     <color name="color2">#B267BF</color>
     <color name="color3">#BA5678</color>
