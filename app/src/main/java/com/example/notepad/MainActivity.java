@@ -28,10 +28,10 @@ import java.util.ArrayList;
 public class MainActivity extends AppCompatActivity implements View.OnClickListener, NoteAdapter.OnClickListener{
     FloatingActionButton addNoteBtn;
      ArrayList<Note> notes = new ArrayList<>();
-
+     ArrayList<Note> searchList;
      ImageButton settingBtn;
     public RecyclerView noteRecycleView;
-    SearchView searchView;
+    //SearchView searchView;
 
 
     @Override
@@ -42,7 +42,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         addNoteBtn = findViewById(R.id.add_note_Btn);
         settingBtn = findViewById(R.id.settings);
         noteRecycleView = findViewById(R.id.noteRecycleView);
-
+       // searchView = findViewById(R.id.searchView);
 
         getNotes();
 
@@ -70,6 +70,30 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                startActivity(intent);
             }
         });
+
+        /*searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+            @Override
+            public boolean onQueryTextSubmit(String query) {
+                searchList = new ArrayList<>();
+
+                if (int i=0;i <notes.size(); i++) {
+                performSearch(query);
+                return true;
+            }
+
+
+            @Override
+            public boolean onQueryTextChange(String newText) {
+                performSearch(newText);
+                return true;
+            }
+
+
+        });
+        private void performSearch(String query) {
+        }*/
+
+
 
     }
 

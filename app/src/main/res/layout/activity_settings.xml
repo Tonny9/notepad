@@ -47,26 +47,11 @@
     android:thumbTint="@color/swtch"
     />
     </RelativeLayout>
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/dark"
-            android:id="@+id/noti"
-            android:padding="16dp">
-            <TextView
-                android:layout_marginStart="20dp"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_centerVertical="true"
-                android:text="Notifications"
-                android:textSize="20sp"
-                />
 
-        </RelativeLayout>
     <RelativeLayout
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_below="@id/noti"
+    android:layout_below="@id/dark"
     android:id="@+id/lang"
         android:padding="16dp">
         <TextView
@@ -108,6 +93,28 @@
             android:src="@drawable/baseline_chevron_right_24"
             android:layout_alignParentEnd="true"
             android:layout_centerVertical="true"/>
+    </RelativeLayout>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/abt">
+        <ImageButton
+            android:id="@+id/outlog"
+            android:layout_marginStart="22dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/baseline_logout_24"
+            />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_toEndOf="@id/outlog"
+            android:textSize="24sp"
+            android:text="Log out"
+            android:layout_centerVertical="true"
+            android:textColor="#FB0202"/>
+
+
     </RelativeLayout>
     </RelativeLayout>
 

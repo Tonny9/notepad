@@ -17,13 +17,14 @@
                     android:textSize="35sp"
                     android:textStyle="bold"
                     android:id="@+id/pad"/>
-                <androidx.appcompat.widget.SearchView
+                <SearchView
                     android:id="@+id/searchView"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:background="#6FB3BF7F"
                     app:queryHint="Search notes"
                     android:layout_below="@id/pad"
+                    android:iconifiedByDefault="false"
                     />
         </RelativeLayout>
         <LinearLayout

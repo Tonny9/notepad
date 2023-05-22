@@ -11,6 +11,7 @@ import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.view.View;
 import android.widget.CompoundButton;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 
 import java.util.prefs.Preferences;
@@ -18,7 +19,7 @@ import java.util.prefs.Preferences;
 public class  settings extends AppCompatActivity {
     ImageView bacBtn;
     SwitchCompat switchCompatBtn;
-
+    ImageButton logoutBtn;
 
 
     @Override
@@ -28,7 +29,7 @@ public class  settings extends AppCompatActivity {
 
         bacBtn = findViewById(R.id.bac);
         switchCompatBtn = findViewById(R.id.swithem);
-
+        logoutBtn = findViewById(R.id.outlog);
         bacBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -49,7 +50,14 @@ public class  settings extends AppCompatActivity {
 
             }
         });
-
+       logoutBtn.setOnClickListener(new View.OnClickListener() {
+           @Override
+           public void onClick(View view) {
+               Intent intent = new Intent(settings.this,LoginActivity.class);
+               startActivity(intent);
+               finish();
+           }
+       });
 
 
     }
