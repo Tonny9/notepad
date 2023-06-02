@@ -3,4 +3,6 @@
     <color name="background">#38343C</color>
     <color name="swtch">#E1412267</color>
     <color name="rirow">#FFFFFF</color>
+    <color name="divider_color">#1E1C1C</color>
+    <color name="recy">#423E3E</color>
 </resources>
