@@ -3,6 +3,8 @@ package com.example.notepad.Adapter;
 
 
 import android.content.Context;
+import android.os.Handler;
+import android.os.Looper;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -20,20 +22,23 @@ import com.example.notepad.model.Note;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
+import java.util.Timer;
+import java.util.TimerTask;
 
 public class NoteAdapter extends RecyclerView.Adapter<NoteViewHolder>{
 
     ArrayList<Note> notes;
     Context ctx;
     private OnClickListener onClickListener;
+    private Timer timer;
+    ArrayList<Note> notesSource;
     public NoteAdapter(MainActivity ctx, ArrayList<Note> notes) {
         this.ctx = ctx;
         this.notes = notes;
+        notesSource = notes;
     }
 
-    public NoteAdapter(SearchView.OnQueryTextListener onQueryTextListener, ArrayList<Note> searchList) {
 
-    }
 
     @NonNull
     @Override
@@ -85,6 +90,39 @@ public class NoteAdapter extends RecyclerView.Adapter<NoteViewHolder>{
     public int getItemCount() {
         return notes.size();
     }
+
+    public void searchNotes(final String searchKeyword){
+        timer = new Timer();
+        timer.schedule(new TimerTask() {
+            @Override
+            public void run() {
+               if (searchKeyword.trim().isEmpty()){
+                   notes = notesSource;
+               }else {
+                   ArrayList<Note> temp = new ArrayList<>();
+                   for (Note note : notesSource){
+                       if (note.getTitle().toLowerCase().contains(searchKeyword.toLowerCase())
+                       ||note.getBody().toLowerCase().contains(searchKeyword.toLowerCase())){
+                           temp.add(note);
+                       }
+                   }
+                   notes = temp;
+               }
+               new Handler(Looper.getMainLooper()).post(new Runnable() {
+                   @Override
+                   public void run() {
+                       notifyDataSetChanged();
+                   }
+               });
+            }
+        }, 500);
+
+        }
+        public void cancelTimer(){
+        if (timer!= null){
+            timer.cancel();
+        }
+        }
 }
 
 class NoteViewHolder extends RecyclerView.ViewHolder{
@@ -98,4 +136,5 @@ class NoteViewHolder extends RecyclerView.ViewHolder{
         this.tvNoteTitle = itemView.findViewById(R.id.tvNoteTitle);
         this.tvNoteBody = itemView.findViewById(R.id.tvNoteBody);
     }
-}
+
+    }

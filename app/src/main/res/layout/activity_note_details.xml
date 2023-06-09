@@ -17,20 +17,32 @@
             android:layout_height="wrap_content"
             android:hint="Title"
             android:id="@+id/title"/>
-    </RelativeLayout>
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/titl">
+
+
+
+
+        <ImageView
+            android:id="@+id/imageNote"
+            android:layout_below="@id/title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="12dp"
+            android:layout_marginEnd="12dp"
+            android:layout_marginTop="15dp"
+            android:adjustViewBounds="true"
+            android:contentDescription="@string/app_name"
+            android:visibility="gone" />
+
+
         <EditText
             android:id="@+id/editTextTextMultiLine2"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_width="400dp"
+            android:layout_height="630dp"
             android:ems="10"
-            android:gravity="start|top"
-            android:inputType="textMultiLine"
+            android:gravity="start"
             android:hint="Note something down"
-             />
+            android:inputType="textMultiLine"
+             android:layout_below="@id/imageNote"/>
 
     </RelativeLayout>
 
@@ -44,11 +56,15 @@
         <androidx.appcompat.widget.Toolbar
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
+
+
             <ImageView
                 android:id="@+id/alb"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:src="@drawable/baseline_photo_album_24"/>
+
+
             <ImageView
                 android:id="@+id/share_btn"
                 android:layout_width="wrap_content"

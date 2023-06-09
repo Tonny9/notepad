@@ -12,7 +12,10 @@ import androidx.recyclerview.widget.StaggeredGridLayoutManager;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.view.View;
+import android.widget.EditText;
 import android.widget.ImageButton;
 
 import android.widget.SearchView;
@@ -31,7 +34,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
      ArrayList<Note> searchList;
      ImageButton settingBtn;
     public RecyclerView noteRecycleView;
-    //SearchView searchView;
+    EditText searchView;
 
 
     @Override
@@ -42,7 +45,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         addNoteBtn = findViewById(R.id.add_note_Btn);
         settingBtn = findViewById(R.id.settings);
         noteRecycleView = findViewById(R.id.noteRecycleView);
-       // searchView = findViewById(R.id.searchView);
+        searchView = findViewById(R.id.searchView);
 
         getNotes();
 
@@ -71,27 +74,26 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             }
         });
 
-        /*searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
-            @Override
-            public boolean onQueryTextSubmit(String query) {
-                searchList = new ArrayList<>();
+       searchView.addTextChangedListener(new TextWatcher() {
+           @Override
+           public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
 
-                if (int i=0;i <notes.size(); i++) {
-                performSearch(query);
-                return true;
+           }
+
+           @Override
+           public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+            adapter.cancelTimer();
+           }
+
+           @Override
+           public void afterTextChanged(Editable s) {
+            if (notes.size() != 0){
+                adapter.searchNotes(s.toString());
             }
+           }
+       });
 
 
-            @Override
-            public boolean onQueryTextChange(String newText) {
-                performSearch(newText);
-                return true;
-            }
-
-
-        });
-        private void performSearch(String query) {
-        }*/
 
 
 
